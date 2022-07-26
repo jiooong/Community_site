@@ -19,25 +19,38 @@ public class DispatchServlet extends HttpServlet {
         MemberController memberController = new MemberController();
         ArticleController articleController = new ArticleController();
 
-        // getRequestURI는
-        // http://localhost:8081/usr/article/list/free?page=1 에서
-        // /usr/article/list/free 부분만 가져온다.
-        String url = req.getRequestURI(); //URI를 얻는다.
+  //같은 경로에 요청이 다를 수 있기 떄문에
+        switch(rq.getMethod()){
+            case "GET":
+                switch(rq.getPath()){
+                    case "/usr/article/list/free":
+                        articleController.showList(rq);
+                        break;
+                    case "/usr/article/write/free":
+                        articleController.showWrite(rq);
+                        break;
+                    case "/usr/member/login":
+                        memberController.showLogin(rq);
+                        break;
+                }
+                break;
 
-        System.out.println(url);
+            case "POST":
+                switch(rq.getPath()){
 
-        switch(url){
-            case "/usr/article/list/free":
-                articleController.showList(rq);
+                    case "/usr/article/write/free":
+                        articleController.doWrite(rq);
+                        break;
+
+                }
                 break;
-            case "/usr/article/write/free":
-                articleController.showWrite(rq);
-                break;
-            case "/usr/member/login":
-                memberController.showLogin(rq);
-                break;
+
         }
 
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        doGet(req, resp);
     }
 
 }

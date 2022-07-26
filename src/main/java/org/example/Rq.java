@@ -66,4 +66,24 @@ public class Rq {
         }
     }
 
+    public String getMethod() {
+        return req.getMethod();
+    }
+
+    public String getPath() {
+        return req.getRequestURI();
+        //// getRequestURI는
+        //        // http://localhost:8081/usr/article/list/free?page=1 에서
+        //        // /usr/article/list/free 부분만 가져온다.
+    }
+
+    public String getParam(String paramName, String defaultValue) {
+        String value = req.getParameter(paramName);
+
+        if (value == null || value.trim().length() == 0) {
+            return defaultValue;
+        }
+
+        return value;
+    }
 }
