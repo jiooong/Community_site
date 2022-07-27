@@ -22,11 +22,14 @@ public class DispatchServlet extends HttpServlet {
   //같은 경로에 요청이 다를 수 있기 떄문에
         switch(rq.getMethod()){
             case "GET":
-                switch(rq.getPath()){
-                    case "/usr/article/list/free":
+                switch(rq.getActionPath()){
+                    case "/usr/article/detail":
+                        articleController.showDetail(rq);
+                        break;
+                    case "/usr/article/list":
                         articleController.showList(rq);
                         break;
-                    case "/usr/article/write/free":
+                    case "/usr/article/write":
                         articleController.showWrite(rq);
                         break;
                     case "/usr/member/login":
@@ -34,19 +37,14 @@ public class DispatchServlet extends HttpServlet {
                         break;
                 }
                 break;
-
             case "POST":
-                switch(rq.getPath()){
-
-                    case "/usr/article/write/free":
+                switch(rq.getActionPath()){
+                    case "/usr/article/write":
                         articleController.doWrite(rq);
                         break;
-
                 }
                 break;
-
         }
-
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {

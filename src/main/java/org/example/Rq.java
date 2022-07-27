@@ -86,4 +86,12 @@ public class Rq {
 
         return value;
     }
+
+    public String getActionPath() {
+        String[] bits = req.getRequestURI().split("/");
+
+        return "/%s/%s/%s".formatted(bits[1], bits[2], bits[3]);
+    }
+
+
 }
