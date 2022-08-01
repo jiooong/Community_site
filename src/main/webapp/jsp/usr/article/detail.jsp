@@ -18,5 +18,6 @@
     <div>
         BODY : <%=article.getBody()%>
     </div>
+
     <% } %>
 </div>

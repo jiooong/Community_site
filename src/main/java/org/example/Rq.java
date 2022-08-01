@@ -50,7 +50,7 @@ public class Rq {
 
     public void setAttr(String name, Object value ) {
 
-        req.setAttribute(name, value);
+        req.setAttribute(name, value); //서블릿이 JSP에게 데이터를 전송할떄의 수단
     }
     public void view(String path) {
         // gugudan2.jsp 에게 나머지 작업을 토스
