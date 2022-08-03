@@ -4,8 +4,11 @@
 <%
     ArticleDto article = (ArticleDto)request.getAttribute("article");
 %>
+<%@include file="../common/head.jspf"%>
+<section>
+    <div class="container px-3 mx-auto">
 
-<h1>게시물 리스트</h1>
+<h1 class="font-bold text-lg">게시물 리스트</h1>
 
 <div>
     <% if ( article != null ) { %>
@@ -21,3 +24,6 @@
 
     <% } %>
 </div>
+    </div>
+</section>
+<%@include file="../common/foot.jspf"%>

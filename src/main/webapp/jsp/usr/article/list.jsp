@@ -7,7 +7,7 @@
 %>
 <script src="https://cdn.tailwindcss.com"></script> <!--// 테일윈드 불러오기-->
 
-
+<%@ include file="../common/head.jspf"%>
 <!--보통 구획은 섹션으로 나눈다-->
 <section>
     <!--contatiner : 너비가 너무 넓게 퍼지는 것을 막는다 + 반응형은 잃지 않는다-->
@@ -27,3 +27,4 @@
     </div>
 </section>
 
+<%@ include file="../common/foot.jspf"%>
