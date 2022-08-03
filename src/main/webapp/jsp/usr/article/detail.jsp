@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="org.example.article.dto.ArticleDto" %>
 
-<%
-    ArticleDto article = (ArticleDto)request.getAttribute("article");
-%>
 <%@include file="../common/head.jspf"%>
 <section>
     <div class="container px-3 mx-auto">
@@ -11,18 +7,16 @@
 <h1 class="font-bold text-lg">게시물 리스트</h1>
 
 <div>
-    <% if ( article != null ) { %>
     <div>
-        ID : <%=article.getId()%>
+        ID : ${article.id}
     </div>
     <div>
-        TITLE : <%=article.getTitle()%>
+        TITLE :  ${article.title}
     </div>
     <div>
-        BODY : <%=article.getBody()%>
+        BODY : ${article.body}
     </div>
 
-    <% } %>
 </div>
     </div>
 </section>
